@@ -10,11 +10,16 @@ ENV_DIR=${3:-}
 
 echo "ENV DIR: $ENV_DIR"
 
+
 ls $ENV_DIR
 
-ls "$ENV_DIR/PROJECT_PATH"
+PROJECT_PATH=`cat $ENV_DIR/PROJECT_PATH`
 
-# if [ -f $ENV_DIR/PROJECT_PATH ]; then
+MONGO_URI=`cat $ENV_DIR/MONGO_URI`
+
+echo $PROJECT_PATH $MONGO_URI
+
+if [ -f $ENV_DIR/PROJECT_PATH ]; then
 	PROJECT_PATH=`cat $ENV_DIR/PROJECT_PATH`
 	if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
 		echo "-----> Subdir buildpack in $PROJECT_PATH"
@@ -32,7 +37,7 @@ ls "$ENV_DIR/PROJECT_PATH"
 		rm -rf $TMP_DIR
 		exit 0
 	fi
-# fi
+fi
 
 echo "PROJECT_PATH is undefined"
 exit 1
