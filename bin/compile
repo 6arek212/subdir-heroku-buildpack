@@ -10,9 +10,11 @@ ENV_DIR=${3:-}
 
 echo "ENV DIR: $ENV_DIR"
 
+ls $ENV_DIR
+
 ls "$ENV_DIR/PROJECT_PATH"
 
-if [ -f $ENV_DIR/PROJECT_PATH ]; then
+# if [ -f $ENV_DIR/PROJECT_PATH ]; then
 	PROJECT_PATH=`cat $ENV_DIR/PROJECT_PATH`
 	if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
 		echo "-----> Subdir buildpack in $PROJECT_PATH"
@@ -30,7 +32,7 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		rm -rf $TMP_DIR
 		exit 0
 	fi
-fi
+# fi
 
 echo "PROJECT_PATH is undefined"
 exit 1
