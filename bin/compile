@@ -19,9 +19,9 @@ MONGO_URI=`cat $ENV_DIR/MONGO_URI`
 
 echo $PROJECT_PATH $MONGO_URI
 
-if [ -f $ENV_DIR/PROJECT_PATH ]; then
+# if [ -f $ENV_DIR/PROJECT_PATH ]; then
 	PROJECT_PATH=`cat $ENV_DIR/PROJECT_PATH`
-	if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
+# 	if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
 		echo "-----> Subdir buildpack in $PROJECT_PATH"
 		echo "       creating cache: $CACHE_DIR"
 		mkdir -p $CACHE_DIR
@@ -36,8 +36,8 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		echo "       cleaning tmp dir $TMP_DIR"
 		rm -rf $TMP_DIR
 		exit 0
-	fi
-fi
+# 	fi
+# fi
 
 echo "PROJECT_PATH is undefined"
 exit 1
