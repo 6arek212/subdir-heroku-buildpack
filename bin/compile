@@ -10,6 +10,8 @@ ENV_DIR=${3:-}
 
 echo "ENV DIR: $ENV_DIR"
 
+LS $ENV_DIR
+
 if [ -f $ENV_DIR/PROJECT_PATH ]; then
 	PROJECT_PATH=`cat $ENV_DIR/PROJECT_PATH`
 	if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
